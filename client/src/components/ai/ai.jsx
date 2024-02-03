@@ -4,7 +4,7 @@ import { BardAPI } from 'bard-api-node';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-const API_KEY = "fAg5fLNjcz2GfwzBywmo6DdvepuRQnQMQWeA-jzwr3Nb9yuzD8RRj3tqfXiv1JOuiJwwDA.";
+const API_KEY = "Your api key";
 
 function Ai() {
   const [messages, setMessages] = useState([
