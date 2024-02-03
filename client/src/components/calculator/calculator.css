@@ -1,0 +1,13 @@
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.buttonBox{
+    display: flex;
+    gap: 20px;
+}
+.b{
+    width:100px ;
+}

@@ -6,9 +6,8 @@ export default function Error() {
      <h1 className="display-3">Error 404</h1>
      <p> Page not found </p>
      <div className="d-flex">
-     <a href="/" className="btn btn-info m-1">Home</a>
-     <a href="/items" className="btn btn-secondary m-1">Lost Items</a>
-     <a href="/login" className="btn btn-primary m-1">Login</a>
+     <a href="/" className="btn btn-primary m-1">Home</a>
+     <a href="/login" className="btn btn-primary m-1">Sign In</a>
      </div>
     </div>
   )

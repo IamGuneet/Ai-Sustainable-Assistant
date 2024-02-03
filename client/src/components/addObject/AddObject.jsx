@@ -1,8 +1,9 @@
 import './addObject.css'
 import { useState } from 'react'
 import axios from 'axios';
-
-
+import { storage } from '../../cloud/firebaseConfig.js';
+import {ref,uploadBytes} from 'firebase/storage'
+import { v4 as uuidv4 } from 'uuid';
 
 const AddObject = () => {
   const [title, setTitle] = useState('')
@@ -31,19 +32,36 @@ const AddObject = () => {
      let status = false;
       //prevent page from reloading on submission  
     e.preventDefault()
-    
+    // generate unique id
+    const fileId = uuidv4();
+  
+    // uploading to firebase
+    const imageRef = ref(storage,`LostItems/${img.name}`);
+    const metaData = {
+      customMetadata:{
+        timestamp: new Date().toLocaleDateString(),
+        id:fileId
+      }
+    }
+    uploadBytes(imageRef,img,metaData)
+    .then((res)=>{
+      console.log('upload response :',res);
+    })
+    .catch((e)=>{console.log(e);})
 
-        const formData = new FormData()
+let formData = new FormData()
+
         formData.append('title',title)
         formData.append('location',location)
         formData.append('description',description)
         formData.append('contact',contact)
-        formData.append('file',img)
+        formData.append('fileId',fileId)
           // making post request 
           try{
-                 axios.post('http://localhost:8080/login/addItem', formData,{
+            console.log(title,location,description);
+              axios.post('http://localhost:8080/login/addItem', formData,{
                 headers:{
-               "Content-Type":'multipart/form-data'
+               "Content-Type": 'application/json'
           }
         }).then((res)=>{
           console.log(res),
@@ -51,7 +69,7 @@ const AddObject = () => {
         }
         )
       }catch(error){
-        console.log(error)
+        console.log(error.message)
       }
       status = true
       if(status === false){
@@ -66,7 +84,7 @@ const AddObject = () => {
     <div className='add-obj container p-3'>
       <h1 className='display-3'>Add Item</h1>
 
-      <form onSubmit={handleSubmit}  encType="multipart/form-data" className='form' >
+      <form onSubmit={handleSubmit} className='form' >
     
       <div className='row d-flex justify-content-center align-items-center p-3'>
 

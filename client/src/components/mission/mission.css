@@ -1,14 +1,6 @@
-
-
 .homepage-container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   
-}
-.images{
-    border-radius: 50%;
-    border: 2px solid rgb(223, 214, 214);
-    height: 500px;
 }

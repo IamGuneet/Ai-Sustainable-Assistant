@@ -1,13 +1,22 @@
-html, body {
+/* html, body {
     height: 100%;
-  }
+  } */
 
   .wrapper {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+    /* min-height: 100%; */
+    /* display: flex; */
+    /* flex-direction: column; */
   }
-
+.foot{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.tips{
+  font-size: 20px;
+}
   .content {
     flex: 1;
   }

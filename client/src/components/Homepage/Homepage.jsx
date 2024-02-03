@@ -1,11 +1,13 @@
 import './homepage.css'
-
+import img from "./editLogo.jpg"
 const Homepage = () => {
 
   return (
-    <div className='homepage-container p-3 '>
-      <h1 className='display-3'>Welcome</h1>
-      <p className='lead p-1'>This is a student project aimed to solve the barrier between lost objects within Gitam Hyderabad campus and the management</p>
+    <div className=' homepage-container p-3 '>
+      {/* <h1 className='display-1'>हरितदीपः</h1> */}
+      <p className='lead p-1'>
+      <img src={img} alt='logo' className='images'></img>
+      </p>
     </div>
   )
 }

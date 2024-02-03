@@ -26,18 +26,19 @@ const Login = () => {
         body: JSON.stringify({username,password})
       })
         .then(res =>{
-          if(res.redirected){
-              window.location.href = res.url
-          }else{
-            console.log('error in redirection');
+          if(res.status == 200){
+              // let token = res.data.token
+              // console.log(token);
+              window.location.href = `http://127.0.0.1:5173/logged/success`
+            }else{
+              console.log('error in redirection');
+              window.location.href = 'http://127.0.0.1:5173/error'
           }
           
         }) 
     }catch(e){
       console.log(e);
     }
-    // console.log('Username:', username);
-    // console.log('Password:', password);
     setUsername('');
     setPassword('');
   };
@@ -70,7 +71,11 @@ const Login = () => {
           required
         />
       </div>
+      <div className='buttons'>
       <button type="submit" className='btn btn-primary'>Login</button>
+
+      <button  className='btn btn-primary'><a href='/signin' id='signin'>SignUp</a></button>
+      </div>
       </form>
     </div>
   )

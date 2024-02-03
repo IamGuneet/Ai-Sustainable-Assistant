@@ -17,7 +17,7 @@ a{
     text-decoration: none;
 }
 .logo-img{
-    height: 70px;
+    height: 65px;
     border-radius: 50%;
 }
 html, body {
@@ -33,3 +33,16 @@ html, body {
   .content {
     flex: 1;
   }
+.bg{
+    background-color: #a2f89f;
+}
+
+.nav-link{
+    font-size: larger;
+    font-weight: bolder;
+}
+.navbar{
+    display: flex;
+    will-change: 100%;
+    justify-content: space-between;
+}
